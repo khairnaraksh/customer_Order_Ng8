@@ -1,0 +1,19 @@
+[{
+  "customerId": 1,
+  "orderId": 1001,
+  "ProductId": "P100",
+  "ProductName": "Cycle",
+  "Price": 5000
+}, {
+  "customerId": 2,
+  "orderId": 1002,
+  "ProductId": "P400",
+  "ProductName": "Mouse",
+  "Price": 500
+}, {
+  "customerId": 3,
+  "orderId": 1003,
+  "ProductId": "P200",
+  "ProductName": "Key-Board",
+  "Price": 5500
+}]

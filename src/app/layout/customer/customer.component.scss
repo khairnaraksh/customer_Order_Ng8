@@ -1,0 +1,46 @@
+.round-btn {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.42;
+  border-radius: 15px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.custList {
+  background-color: deepskyblue;
+}
+
+.information {
+  background-color: cornflowerblue;
+}
+
+.cust-order {
+  background-color: darkorchid;
+}
+
+#cross{
+  top:5px;
+  right:5px;
+  width:25px;
+  height:25px;
+  position:absolute;
+  -webkit-transition:-webkit-transform .25s, opacity .25s;
+    -moz-transition:-moz-transform .25s, opacity .25s;
+             transition: transform .25s, opacity .25s;
+  opacity:.25;
+}
+#cross:hover{
+  -webkit-transform: rotate(270deg);
+-moz-transform: rotate(270deg);
+transform: rotate(270deg);
+  opacity:1;
+}
+.pointer{
+  cursor: pointer;
+}

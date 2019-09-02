@@ -1,0 +1,81 @@
+<form>
+  <mat-card>
+    <button mat-fab color="primary" (click)="onCreate()">Create</button>
+    <br />
+    <div class="row">
+      <div class="col-sm-4">
+        <mat-card class="custList">
+          <mat-card *ngFor="let cust of CustomerList" class="pointer" (click)="selectedCusomer(cust)">
+            <p>{{cust.Name}}</p>
+          </mat-card>
+        </mat-card>
+      </div>
+      <div class="col-sm-4" *ngIf="showinFormation">
+        <mat-card class="information">
+          <app-information (informationEvent)="informationMsg($event)"></app-information>
+        </mat-card>
+      </div>
+      <div class="col-sm-4" *ngIf="custorderDetails">
+        <mat-card class="cust-order">
+          <app-custorder-details [informationDetails]="getinformation"></app-custorder-details>
+        </mat-card>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="alert alert-success" *ngIf="showdelSuccessfullMessage!==''" role="alert">
+        <h4>
+          <i class="fa fa-check"></i> {{showdelSuccessfullMessage}}</h4>
+      </div>
+      <div class="alert alert-warning" *ngIf="showdelUnsuccessfullMessage!==''" role="alert">
+        <h4>
+          <i class="fa fa-times-circle"></i> {{showdelUnsuccessfullMessage}}</h4>
+      </div>
+    </div>
+  </mat-card>
+</form>
+<div bsModal #issueDetailsModal="bs-modal" class="modal fade" role="dialog" [config]="{backdrop: false}"
+  aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title title pull-left">Issue Detail</h4>
+        <img id="cross" src="assets/images/crossnew.png" alt="X" (click)="closeModal()" />
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-4">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Name" name="custname" #custname="ngModel" required
+                [(ngModel)]="customerModal.custName">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field class="full-width">
+              <input matInput type="tel" placeholder="Mobile No" name="mobileNo" #mobileNo="ngModel" minlength=10
+                maxlength=10 required [(ngModel)]="customerModal.Mobile">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Address" name="Address" #Address="ngModel"
+                [(ngModel)]="customerModal.address"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <button mat-raised-button color="primary" (click)="insertCustomer(customerModal)">Submit</button>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="alert alert-success" *ngIf="showSuccessfullMessage!==''" role="alert">
+            <h4>
+              <i class="fa fa-check"></i> {{showSuccessfullMessage}}</h4>
+          </div>
+          <div class="alert alert-warning" *ngIf="showUnsuccessfullMessage!==''" role="alert">
+            <h4>
+              <i class="fa fa-times-circle"></i> {{showUnsuccessfullMessage}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

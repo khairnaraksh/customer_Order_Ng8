@@ -1,0 +1,13 @@
+<mat-card class="pointer">
+  <div *ngIf="customerDetails">
+    <p>Name:- {{informationDetails.Name}} </p>
+    <p>Address:- {{informationDetails.Address}}</p>
+    <p>Mobile No:-{{informationDetails.Contact}}</p>
+    <p>OrderId:-{{informationDetails.orderId}}</p>
+  </div>
+  <div *ngIf="!customerDetails">
+    <p>OrderId:-{{orderDetails.orderId}}</p>
+    <p>Product Name:-{{orderDetails.ProductName}}</p>
+    <p>Price:-{{orderDetails.Price}}</p>
+  </div>
+</mat-card>
